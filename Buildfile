@@ -7,11 +7,11 @@ VERSION_NUMBER = "1.0.0-SNAPSHOT"
 require "dependencies.rb"
 require "repositories.rb"
 
-#ODE_VERSION = "apache-ode-1.2-SNAPSHOT-700632"
-#ODE_URI = "http://www.intalio.org/public/ode/#{ODE_VERSION}.zip"
-
 ODE_VERSION = "apache-ode-war-1.3.2-SNAPSHOT"
-ODE_URI = "file:///ode/1.x/distro/target/#{ODE_VERSION}.zip"
+ODE_URI = "http://www.intalio.org/public/ode/#{ODE_VERSION}.zip"
+
+#ODE_VERSION = "apache-ode-war-1.3.2-SNAPSHOT"
+#ODE_URI = "file:///ode/1.x/distro/target/#{ODE_VERSION}.zip"
 
 desc "ODE Extension"
 define "ode-ext" do
