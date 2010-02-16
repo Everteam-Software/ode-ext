@@ -150,10 +150,11 @@ public class ProcessComponentManager extends DeploymentPoller implements Compone
 	}
 
 	public void undeploy(ComponentId cid, File path, List<String> deployedResources) {
-		if( deployedResources.isEmpty() ) {
-			throw new IllegalArgumentException("Deployed resources that were passed in from Deployment Service do not contain ODE deployment unit name!!");
-		}
-		_odeServer.getProcessStore().undeploy(deployedResources.iterator().next());
+//		if( deployedResources.isEmpty() ) {
+//			throw new IllegalArgumentException("Deployed resources that were passed in from Deployment Service do not contain ODE deployment unit name!!");
+//		}
+		_odeServer.getProcessStore().undeploy(path);
+//		_odeServer.getProcessStore().undeploy(deployedResources.iterator().next());
 	}
 
 	public void undeployed(ComponentId cid, File path, List<String> deployedResources) {
