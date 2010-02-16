@@ -7,7 +7,8 @@ VERSION_NUMBER = "1.0.1-SNAPSHOT"
 require "dependencies.rb"
 require "repositories.rb"
 
-ODE_VERSION = "apache-ode-war-1.3.2-SNAPSHOT"
+# here using a trunk SVN version because 1.3.3 is broken 
+ODE_VERSION = "apache-ode-war-1.3.4-SNAPSHOT-svn-907948"
 ODE_URI = "http://www.intalio.org/public/ode/#{ODE_VERSION}.zip"
 
 #ODE_VERSION = "apache-ode-war-1.3.2-SNAPSHOT"
@@ -25,9 +26,9 @@ define "ode-ext" do
     import_ode = lambda do |target|
       file(target) do |task|
         Buildr.ant("download ode and unzip") do |ant|
-          ant.get :src=>ODE_URI, :dest=>_("target/ode.zip")
-          ant.unzip :src=>_("target/ode.zip"), :dest=>_("target/ode/unzipped")
-          ant.unjar :src=>_("target/ode/unzipped/#{ODE_VERSION}/ode.war"), :dest=>_("target/ode")
+          # ant.get :src=>artifact("org.apache.ode:ode-axis2-war:war:1.3.3"), :dest=>_("target/ode.zip")
+          # ant.unzip :src=>_("target/ode.zip"), :dest=>_("target/ode/unzipped")
+          ant.unjar :src=>artifact("org.apache.ode:ode-axis2-war:war:1.3.4-SNAPSHOT-svn-907948"), :dest=>_("target/ode")
         end
         Dir[_("target/ode/WEB-INF/lib/*.jar")].each {|f| compile.with f}
       end

@@ -118,7 +118,7 @@ public class ProcessComponentManager extends DeploymentPoller implements Compone
 		 */
         try {
         	String duName = resolvePackageNameFromComponentId(name);
-            Collection<QName> deployed = _odeServer.getProcessStore().deploy(path, activate, duName);
+            Collection<QName> deployed = _odeServer.getProcessStore().deploy(path, activate);
             __log.info("Deployment of artifact " + path.getName() + " successful: " + deployed );
             deployedResources.add(duName);
         } catch (Exception e) {
